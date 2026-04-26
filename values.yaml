@@ -6,16 +6,16 @@ global:
     host: "10.0.0.16"
     serviceType: LoadBalancer
     envoyPorts:
-      trackerServerGoPort: 32016
-      trackerServerTlsGoPort: 30599
-      trackerServerQuicGoPort: 30389
-      trackerClientGoPort: 32531
-      trackerAnalyticsPort: 30313
-      communicationsAppPort: 32326
+      trackerServerGoPort: 18098
+      trackerServerTlsGoPort: 8098
+      trackerServerQuicGoPort: 8444
+      trackerClientGoPort: 8099
+      trackerAnalyticsPort: 5050
+      communicationsAppPort: 8080
     appPorts:
       trackerServerGoPort: 18098
       trackerServerTlsGoPort: 8098
       trackerServerQuicGoPort: 8444
       trackerClientGoPort: 8099
       trackerAnalyticsPort: 5050
-      communicationsAppPort: 80
+      communicationsAppPort: 8080

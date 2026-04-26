@@ -123,8 +123,8 @@ spec:
   - backendRefs:
     - name: communications-app
       port: {{ .Values.global.envoy.appPorts.communicationsAppPort }}      
-{{ if eq .Values.global.envoy.serviceType "NodePort" }}      
 ---
+{{ if eq .Values.global.envoy.serviceType "NodePort" }}
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
