@@ -1,9 +1,7 @@
 # Envoy templating values
 global:
   appName: "tracker-simulator-envoy-nextgen"
-  networkHost: "10.0.0.16"
   envoy:
-    host: "10.0.0.16"
     serviceType: LoadBalancer
     envoyPorts:
       trackerServerGoPort: 18098
