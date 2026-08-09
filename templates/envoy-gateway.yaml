@@ -184,6 +184,36 @@ spec:
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: BackendTrafficPolicy
 metadata:
+  name: tracker-client-go-least-connections
+  namespace: default
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: TCPRoute
+    name: tracker-client-go-route
+  loadBalancer:
+    type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: tracker-server-go-least-connections-http1
+  namespace: default
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: TCPRoute
+    name: tracker-server-go-route-http1
+  loadBalancer:
+    type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
   name: tracker-server-go-least-connections-http3
   namespace: default
 spec:
@@ -193,6 +223,8 @@ spec:
     name: tracker-server-go-route-http3
   loadBalancer:
     type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: BackendTrafficPolicy
@@ -205,4 +237,36 @@ spec:
     kind: UDPRoute
     name: tracker-server-go-route-quic
   loadBalancer:
-    type: LeastRequest        
+    type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: tracker-analytics-least-connections
+  namespace: default
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: TCPRoute
+    name: tracker-analytics-route
+  loadBalancer:
+    type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: communications-app-least-connections
+  namespace: default
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: TCPRoute
+    name: communications-app-route
+  loadBalancer:
+    type: LeastRequest
+  circuitBreaker:
+    maxConnections: 10000        
